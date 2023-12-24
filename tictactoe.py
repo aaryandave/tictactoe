@@ -1,4 +1,5 @@
 from RandomAI import RandomAI
+from MatchboxAI import MatchboxAI
 
 def print_board(board_string):
     board = [c for c in board_string]
@@ -40,10 +41,13 @@ def make_move(board, player, position):
 if __name__ == '__main__':
     print('choose ai:')
     print('1. random')
+    print('2. matchbox')
 
     ai = input()
     if ai == '1':
         ai = RandomAI()
+    elif ai == '2':
+        ai = MatchboxAI()
     else:
         print('invalid ai')
         exit()
@@ -77,6 +81,7 @@ if __name__ == '__main__':
             break
       
         ai_position = ai.get_move(board)
+        print(f"ai move: {ai_position}")
         board = make_move(board, 'O', ai_position)
 
         print_board(board)
