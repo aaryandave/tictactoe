@@ -1,0 +1,24 @@
+# Ignore compiled Python files
+*.pyc
+*.pyo
+__pycache__
+
+# Ignore environment-specific files
+.env
+venv/
+.env/
+
+# Ignore any local build output or logs
+*.log
+logs/
+*.db
+*.sqlite3
+
+# Ignore user-specific files
+*.idea/
+.vscode/
+.DS_Store
+
+# Ignore miscellaneous files
+*.bak
+*.swp
