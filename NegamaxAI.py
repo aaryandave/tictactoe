@@ -13,7 +13,7 @@ class NegamaxAI:
         if not moves:
             return None, 0
 
-        best = (None, -float(inf))
+        best = (None, -float('inf'))
         for move in moves:
             child_board = board[:move] + player + board[move + 1:]
             score = -self.negamax(child_board, 'O' if player == 'X' else 'X')[1]
