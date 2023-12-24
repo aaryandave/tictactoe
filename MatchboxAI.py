@@ -26,11 +26,7 @@ class MatchboxAI:
             weighted_choices = [(k, v) for k, v in weights.items()]
             moves, weights = zip(*weighted_choices)
 
-            # Choose a move randomly based on weights
             return random.choices(moves, weights=weights)[0]
         else:
             return None
-
-if __name__ == '__main__':
-    ai = MatchboxAI()
-    print(ai.get_move("X        "))
+        
