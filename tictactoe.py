@@ -1,6 +1,7 @@
 from RandomAI import RandomAI
 from MatchboxAI import MatchboxAI
 from NegamaxAI import NegamaxAI
+from AlphabetaAI import AlphabetaAI
 
 def print_board(board_string):
     board = [c for c in board_string]
@@ -44,6 +45,7 @@ if __name__ == '__main__':
     print('1. random')
     print('2. matchbox')
     print('3. negamax')
+    print('4. alphabeta')
 
     ai = input()
     if ai == '1':
@@ -52,6 +54,8 @@ if __name__ == '__main__':
         ai = MatchboxAI()
     elif ai == '3':
         ai = NegamaxAI()
+    elif ai == '4':
+        ai = AlphabetaAI()
     else:
         print('invalid ai')
         exit()

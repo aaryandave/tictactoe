@@ -1,9 +1,9 @@
-class NegamaxAI:
+class AlphabetaAI:
     def get_move(self, board):
-        best_move, _ = self.negamax(board, 'O')  # 'O' represents AI's move
+        best_move, _ = self.alphabeta(board, -float('inf'), float('inf'), 'O')  # 'O' represents AI's move
         return best_move
 
-    def negamax(self, board, player):
+    def alphabeta(self, board, alpha, beta, player):
         if self.is_winner(board, player):
             return None, 1
         elif self.is_winner(board, 'O' if player == 'X' else 'X'):
@@ -13,12 +13,16 @@ class NegamaxAI:
         if not moves:
             return None, 0
 
-        best = (None, -float(inf))
+        best = (None, -float('inf'))
         for move in moves:
             child_board = board[:move] + player + board[move + 1:]
-            score = -self.negamax(child_board, 'O' if player == 'X' else 'X')[1]
+            score = -self.alphabeta(child_board, -beta, -alpha, 'O' if player == 'X' else 'X')[1]
             if score > best[1]:
                 best = (move, score)
+
+            alpha = max(alpha, score)
+            if alpha >= beta:
+                break
         
         return best
 
